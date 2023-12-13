@@ -1,0 +1,10 @@
+[dev]
+cn1
+[test]
+cn2
+[prod]
+cn3
+cn4
+
+[webservers:children]
+prod
