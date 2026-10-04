@@ -1,0 +1,11 @@
+---
+- name: test all linux servers
+  hosts: workers
+  become: true
+
+  tasks:
+    - name: create AWX test file
+      ansible.builtin.copy:
+        content: "this server was configured by Awx.\n"
+        dest: /tmp/awx_test.txt
+        mode: '0644'
