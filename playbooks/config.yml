@@ -1,0 +1,15 @@
+---
+- name: Linux server informantion
+  hosts: all
+  become: true
+
+  tasks:
+    - name: get hostname
+      ansible.builtin.command:
+      cmd: hostname
+      register: hostname_output
+
+    - name: display hostname 
+      ansible.builtin.debug:
+        var: hostname_output.stdout
+     
