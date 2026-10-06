@@ -5,8 +5,7 @@
 
   tasks:
     - name: get hostname
-      ansible.builtin.command:
-      cmd: hostname
+      ansible.builtin.command: hostname
       register: hostname_output
 
     - name: display hostname 
