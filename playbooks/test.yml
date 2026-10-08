@@ -1,6 +1,6 @@
 ---
 - name: test all linux servers
-  hosts: all
+  hosts: aws_ec2
   become: true
 
   tasks:
