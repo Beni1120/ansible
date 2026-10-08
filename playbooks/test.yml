@@ -1,11 +1,19 @@
 ---
-- name: test all linux servers
-  hosts: all
+- name: Test AWS web servers
+  hosts: role_web
   become: true
 
   tasks:
-    - name: create AWX test file
+    - name: Get hostname
+      ansible.builtin.command: hostname
+      register: hostname_output
+
+    - name: Display hostname
+      ansible.builtin.debug:
+        var: hostname_output.stdout
+
+    - name: Create AWX test file
       ansible.builtin.copy:
-        content: "this server was configured by Awx.\n"
-        dest: /tmp/awx_test.txt
+        content: "Managed by AWX using AWS dynamic inventory.\n"
+        dest: /tmp/aws_awx_test.txt
         mode: '0644'
