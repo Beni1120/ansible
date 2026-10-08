@@ -1,6 +1,6 @@
 ---
 - name: test all linux servers
-  hosts: workers
+  hosts: all
   become: true
 
   tasks:
